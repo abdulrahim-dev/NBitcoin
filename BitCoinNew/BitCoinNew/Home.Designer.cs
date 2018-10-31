@@ -31,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPublicKey = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label2
@@ -59,11 +60,20 @@
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(273, 232);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(586, 160);
+            this.listBox1.TabIndex = 11;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(892, 487);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPublicKey);
             this.Controls.Add(this.btnCreate);
@@ -78,6 +88,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPublicKey;
         private System.Windows.Forms.Button btnCreate;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

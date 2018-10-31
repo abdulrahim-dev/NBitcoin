@@ -22,17 +22,28 @@ namespace BitCoinNew
         {
             var secret = new BitcoinSecret("cTZgKdjeErpXTa8jUYQutudDftDLcZy9BcRsAX69JShQha8gfbNu");
             var privateKey = secret.PrivateKey;
-            var publicKey = privateKey.PubKey.GetAddress(Network.TestNet);
-            txtPublicKey.Text = publicKey.ToString();
+            var publicKey = privateKey.PubKey;
+            var publicKeyHash = publicKey.Hash;
 
+
+            txtPublicKey.Text = publicKey.GetAddress(Network.TestNet).ToString();
+            
+            var testNetAddress = publicKeyHash.GetAddress(Network.TestNet);
+            var mainNetAddress = publicKeyHash.GetAddress(Network.Main);
+
+            listBox1.Items.Add("testNetAddress( "+testNetAddress+" ) ScriptPubKey= " + testNetAddress.ScriptPubKey);
             /*
              * We can use this code to generate a new address
              * 
              * 
-             * var key = new Key();
-            txtPrivateKey.Text = key.ToString(Network.TestNet);
-            txtPublicKey.Text = key.PubKey.GetAddress(Network.TestNet).ToString();
-            lblAddress.Text = new BitcoinSecret(key.ToString(Network.TestNet)).ToString();*/
+            var key = new Key();                                                // Step 1 - Generate a random private key
+            var privateKey = key.ToString(Network.TestNet);                          // privateKey
+            var publicKey=key.PubKey;                                                      // Step 2 - Public key 
+            var bitCoinAddress = key.PubKey.GetAddress(Network.TestNet).ToString();             //Step 3 - Bitcoin Address
+            
+             */
+
+
 
             /*
                 Private Key
