@@ -32,6 +32,25 @@ namespace BitCoinNew
             var mainNetAddress = publicKeyHash.GetAddress(Network.Main);
 
             listBox1.Items.Add("testNetAddress( "+testNetAddress+" ) ScriptPubKey= " + testNetAddress.ScriptPubKey);
+
+            Transaction transaction = new Transaction();
+            var input = new TxIn();
+            input.PrevOut = new OutPoint(new uint256("c5eb6cc0481e4ae17c812a5ce444ed746991b1532990bdb6e063215b35092bc2"), 1);
+            input.ScriptSig = secret.GetAddress().ScriptPubKey;
+            transaction.AddInput(input);
+
+            TxOut output = new TxOut();
+            var destination = BitcoinAddress.Create("mhYPDTTnNWFAc15EsqcAPgEddD1ytNcH7x");
+            Money fee = Money.Satoshis(40000);
+            output.Value = Money.Coins(0.01m)-fee;
+            output.ScriptPubKey = destination.ScriptPubKey;
+            transaction.AddOutput(output);
+
+            transaction.Sign(secret, false);
+
+
+
+
             /*
              * We can use this code to generate a new address
              * 
